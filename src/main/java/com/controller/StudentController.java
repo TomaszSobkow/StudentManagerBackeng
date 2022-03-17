@@ -23,6 +23,4 @@ public class StudentController {
     public List<Student> getAllEmployees(){
         return  employeeRepository.findAll();
     }
-
-
 }
