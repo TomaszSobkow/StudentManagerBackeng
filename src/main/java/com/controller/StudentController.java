@@ -12,14 +12,14 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://192.168.178.50:4200")
-@RequestMapping("api")
+@RequestMapping("api/sm")
 public class StudentController {
 
     @Autowired
     private StudentRepository employeeRepository;
 
     //GetAllEmployees
-    @GetMapping("employee")
+    @GetMapping("students")
     public List<Student> getAllEmployees(){
         return  employeeRepository.findAll();
     }
