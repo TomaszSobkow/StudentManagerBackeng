@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://192.168.178.50:4200")
-@RequestMapping("api/sm")
+//@CrossOrigin(origins = "http://192.168.178.50:4200")
+@RequestMapping("/api/sm")
 public class StudentController {
 
     @Autowired
     private StudentRepository employeeRepository;
 
     //GetAllEmployees
-    @GetMapping("students")
+    @GetMapping("/students")
     public List<Student> getAllEmployees(){
         return  employeeRepository.findAll();
     }
