@@ -1,7 +1,6 @@
 package com.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity()
 @Table(name = "students")
@@ -32,8 +31,7 @@ public class Student {
     @Column(name = "email_id")
     private String emailId;
 
-    @Column(name = "birth")
-    private LocalDate birth;
+
 
 
     public Student() {  }
@@ -55,9 +53,6 @@ public class Student {
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
-
-    public LocalDate getBirth() { return birth; }
-    public void setBirth(LocalDate birth) { this.birth = birth; }
 
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }

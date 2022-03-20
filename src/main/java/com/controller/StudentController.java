@@ -20,15 +20,18 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
+
     //GetAllEmployees
     @GetMapping("/students")
     public List<Student> getAllEmployees(){
         return  studentRepository.findAll();
+
     }
 
     //Add new Student
     @PostMapping("/students")
     public Student addStudent(@RequestBody Student newStudent){
         return studentRepository.save(newStudent);
+
     }
 }
