@@ -66,7 +66,7 @@ public class StudentController {
 
     //Delete Student
     @DeleteMapping("students/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteStudent(Long id){
+    public ResponseEntity<Map<String, Boolean>> deleteStudent(@PathVariable Long id){
         Student student = studentRepository.findById(id)
             .orElseThrow( ()-> new ResourceNotFoundException("Student not exists with id " + id));
 
