@@ -28,8 +28,8 @@ public class Student {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "email_id")
-    private String emailId;
+    @Column(name = "email")
+    private String email;
 
 
 
@@ -63,6 +63,6 @@ public class Student {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public String getEmailId() { return emailId; }
-    public void setEmailId(String emailId) { this.emailId = emailId; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }

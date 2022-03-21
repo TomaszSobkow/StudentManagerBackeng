@@ -1,6 +1,6 @@
 package com.controller;
 
-import com.ResourceNotFoundException;
+import com.exception.ResourceNotFoundException;
 import com.StudentRepository;
 import com.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,11 +36,28 @@ public class StudentController {
         return studentRepository.save(newStudent);
     }
 
-    //get student by Id rest Api
+    //get student by ID rest Api
     @GetMapping("/students/{id}")
     public ResponseEntity< Student > getStudentById(@PathVariable Long id){
         Student student = studentRepository.findById(id).orElseThrow(
             ()->new ResourceNotFoundException("Student not exists with id" + id) );
         return ResponseEntity.ok(student);
+    }
+
+    //Update student REST API
+    @PutMapping("students/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentDetails){
+        Student student = studentRepository.findById(id).orElseThrow(
+            ()->new ResourceNotFoundException("Student not exists with id" + id) );
+        student.setFirstName(studentDetails.getFirstName());
+        student.setLastName(studentDetails.getLastName());
+        student.setCounty(studentDetails.getAddress());
+        student.setTown(studentDetails.getTown());
+        student.setAddress(studentDetails.getAddress());
+        student.setPhone(studentDetails.getPhone());
+        student.setEmail(studentDetails.getEmail());
+
+        Student updatedStudent = studentRepository.save(student);
+        return ResponseEntity.ok(updatedStudent);
     }
 }
