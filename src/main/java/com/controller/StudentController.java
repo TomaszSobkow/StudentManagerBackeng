@@ -54,7 +54,7 @@ public class StudentController {
             ()->new ResourceNotFoundException("Student not exists with id" + id) );
         student.setFirstName(studentDetails.getFirstName());
         student.setLastName(studentDetails.getLastName());
-        student.setCounty(studentDetails.getAddress());
+        student.setCounty(studentDetails.getCounty());
         student.setTown(studentDetails.getTown());
         student.setAddress(studentDetails.getAddress());
         student.setPhone(studentDetails.getPhone());
