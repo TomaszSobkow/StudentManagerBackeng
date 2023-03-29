@@ -1,10 +1,7 @@
 package student.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -28,5 +25,5 @@ public class User {
     private String password;
 
     @Column(name = "isAdmin")
-    private boolean isAdmin;
+    private boolean isAdmin = false;
 }

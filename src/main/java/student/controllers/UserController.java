@@ -1,9 +1,8 @@
 package student.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import student.model.Student;
 import student.model.User;
 import student.repo.UserRepository;
 
@@ -21,4 +20,10 @@ public class UserController {
     public List<User> getAll(){
         return userRepository.findAll();
     }
+
+    @PostMapping("")
+    public User addUser(@RequestBody User newUser){
+        return userRepository.save(newUser);
+    }
+
 }
