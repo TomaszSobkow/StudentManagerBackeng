@@ -2,6 +2,7 @@ package student.model;
 
 
 import lombok.*;
+import org.hibernate.annotations.NotFound;
 
 import javax.persistence.*;
 

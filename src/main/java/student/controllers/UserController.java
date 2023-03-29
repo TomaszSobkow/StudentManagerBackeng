@@ -26,4 +26,9 @@ public class UserController {
         return userRepository.getById(id);
     }
 
+    @PostMapping("")
+    public int add(@RequestBody User user){
+        return userRepository.save(user);
+    }
+
 }
