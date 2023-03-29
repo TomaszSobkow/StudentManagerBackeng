@@ -1,4 +1,4 @@
-package com.exception;
+package student.exception;
 
 import java.io.Serial;
 

@@ -1,8 +1,8 @@
-package com.controller;
+package student.controller;
 
-import com.exception.ResourceNotFoundException;
-import com.StudentRepository;
-import com.model.Student;
+import student.exception.ResourceNotFoundException;
+import student.StudentRepository;
+import student.model.Student;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
