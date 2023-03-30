@@ -1,7 +1,6 @@
 package student.repo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -30,6 +29,11 @@ public class UserRepository {
         if (newUser.getPassword() == null) password = "default";
 
         return jdbcTemplate.update("INSERT INTO users(email, password, is_admin) VALUES(?,?,?)",
-                newUser.getEmail(), password,newUser.isAdmin());
+                newUser.getEmail(), password, newUser.isAdmin());
+    }
+
+    public void update(User user) {
+        jdbcTemplate.update("UPDATE users SET email=?, password=? WHERE id=?",
+                user.getEmail(), user.getPassword(), user.getId());
     }
 }

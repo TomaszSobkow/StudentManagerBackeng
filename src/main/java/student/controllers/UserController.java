@@ -31,4 +31,16 @@ public class UserController {
         return userRepository.save(user);
     }
 
+    @PutMapping("/{id}")
+    public int update(@PathVariable("id") int id, @RequestBody User userToUpdate){
+        User user = userRepository.getById(id);
+        if(user != null){
+            user.setEmail(userToUpdate.getEmail());
+            user.setPassword(userToUpdate.getPassword());
+            userRepository.update(user);
+            return 1;
+        }else {
+            return -1;
+        }
+    }
 }
