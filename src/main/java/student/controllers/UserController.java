@@ -43,4 +43,10 @@ public class UserController {
             return -1;
         }
     }
+
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable("id") int id){
+        return userRepository.deleteUser(id);
+    }
+
 }

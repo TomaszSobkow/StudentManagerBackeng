@@ -23,5 +23,5 @@ public class User {
     private String password;
 
     @Column(name = "isAdmin")
-    private boolean isAdmin = false;
+    private boolean isAdmin;
 }

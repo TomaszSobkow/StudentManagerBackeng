@@ -36,4 +36,8 @@ public class UserRepository {
         jdbcTemplate.update("UPDATE users SET email=?, password=? WHERE id=?",
                 user.getEmail(), user.getPassword(), user.getId());
     }
+
+    public int deleteUser(int id){
+        return jdbcTemplate.update("DELETE from users WHERE id=?", id);
+    }
 }
