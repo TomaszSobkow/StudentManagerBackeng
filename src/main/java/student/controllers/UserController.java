@@ -8,6 +8,7 @@ import student.repo.UserRepository;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -35,7 +36,7 @@ public class UserController {
     public int update(@PathVariable("id") int id, @RequestBody User userToUpdate){
         User user = userRepository.getById(id);
         if(user != null){
-            user.setEmail(userToUpdate.getEmail());
+            user.setLogin(userToUpdate.getLogin());
             user.setPassword(userToUpdate.getPassword());
             userRepository.update(user);
             return 1;

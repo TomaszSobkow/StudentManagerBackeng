@@ -16,12 +16,12 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "login")
+    private String login;
 
     @Column(name = "password")
     private String password;
 
     @Column(name = "isAdmin")
-    private boolean isAdmin;
+    private String isAdmin;
 }

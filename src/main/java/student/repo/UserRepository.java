@@ -29,12 +29,12 @@ public class UserRepository {
         if (newUser.getPassword() == null) password = "default";
 
         return jdbcTemplate.update("INSERT INTO users(email, password, is_admin) VALUES(?,?,?)",
-                newUser.getEmail(), password, newUser.isAdmin());
+                newUser.getLogin(), password, newUser.getIsAdmin());
     }
 
     public void update(User user) {
         jdbcTemplate.update("UPDATE users SET email=?, password=? WHERE id=?",
-                user.getEmail(), user.getPassword(), user.getId());
+                user.getLogin(), user.getPassword(), user.getId());
     }
 
     public int deleteUser(int id){
