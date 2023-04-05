@@ -20,7 +20,7 @@ public class UserRepository {
     }
 
     public User getById(int id){
-        return jdbcTemplate.queryForObject("SELECT id, email, password, is_admin FROM users WHERE id =?",
+        return jdbcTemplate.queryForObject("SELECT id, login, password, is_admin FROM users WHERE id =?",
                 BeanPropertyRowMapper.newInstance(User.class),id);
     }
 
@@ -28,12 +28,12 @@ public class UserRepository {
         String password = newUser.getPassword();
         if (newUser.getPassword() == null) password = "default";
 
-        return jdbcTemplate.update("INSERT INTO users(email, password, is_admin) VALUES(?,?,?)",
+        return jdbcTemplate.update("INSERT INTO users(login, password, is_admin) VALUES(?,?,?)",
                 newUser.getLogin(), password, newUser.getIsAdmin());
     }
 
     public void update(User user) {
-        jdbcTemplate.update("UPDATE users SET email=?, password=? WHERE id=?",
+        jdbcTemplate.update("UPDATE users SET login=?, password=? WHERE id=?",
                 user.getLogin(), user.getPassword(), user.getId());
     }
 
