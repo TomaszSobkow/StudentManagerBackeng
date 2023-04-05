@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public class UserRepository {
 
+    private  String isAdmin;
+
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -25,16 +27,18 @@ public class UserRepository {
     }
 
     public int save(User newUser) {
-        String password = newUser.getPassword();
-        if (newUser.getPassword() == null) password = "default";
+        isAdmin = newUser.getIsAdmin();
+        if (newUser.getIsAdmin().isEmpty()) isAdmin = "No";
 
         return jdbcTemplate.update("INSERT INTO users(login, password, is_admin) VALUES(?,?,?)",
-                newUser.getLogin(), password, newUser.getIsAdmin());
+                newUser.getLogin(), newUser.getPassword(), isAdmin);
     }
 
     public void update(User user) {
-        jdbcTemplate.update("UPDATE users SET login=?, password=? WHERE id=?",
-                user.getLogin(), user.getPassword(), user.getId());
+        isAdmin = user.getIsAdmin();
+        if (user.getIsAdmin().isEmpty()) isAdmin = "No";
+        jdbcTemplate.update("UPDATE users SET login=?, password=? , is_admin=? WHERE id=?",
+                user.getLogin(), user.getPassword(), isAdmin,user.getId());
     }
 
     public int deleteUser(int id){

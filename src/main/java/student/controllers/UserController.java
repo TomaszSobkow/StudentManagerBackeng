@@ -38,6 +38,7 @@ public class UserController {
         if(user != null){
             user.setLogin(userToUpdate.getLogin());
             user.setPassword(userToUpdate.getPassword());
+            user.setIsAdmin(userToUpdate.getIsAdmin());
             userRepository.update(user);
             return 1;
         }else {
