@@ -1,8 +1,8 @@
-package student.controllers.student;
+package student.controllers;
 
 import student.exception.ResourceNotFoundException;
 import student.repo.StudentRepository;
-import student.model.student.Student;
+import student.model.Student;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,30 +17,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.Access;
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/sm")
+@RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
     private StudentRepository studentRepository;
 
     //GetAllEmployees
-    @GetMapping("/students")
+    @GetMapping("")
     public List<Student> getAllStudents(){
         return  studentRepository.findAll();
     }
 
     //Add new Student
-    @PostMapping("/students")
+    @PostMapping("/student")
     public Student addStudent(@RequestBody Student newStudent){
         return studentRepository.save(newStudent);
     }
 
     //get student by ID rest Api
-    @GetMapping("/students/{id}")
+    @GetMapping("/student/{id}")
     public ResponseEntity< Student > getStudentById(@PathVariable Long id){
         Student student = studentRepository.findById(id).orElseThrow(
             ()->new ResourceNotFoundException("Student not exists with id" + id) );
@@ -48,7 +49,7 @@ public class StudentController {
     }
 
     //Update student REST API
-    @PutMapping("students/{id}")
+    @PutMapping("student/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentDetails){
         Student student = studentRepository.findById(id).orElseThrow(
             ()->new ResourceNotFoundException("Student not exists with id" + id) );
@@ -65,7 +66,7 @@ public class StudentController {
     }
 
     //Delete Student
-    @DeleteMapping("students/{id}")
+    @DeleteMapping("student/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteStudent(@PathVariable Long id){
         Student student = studentRepository.findById(id)
             .orElseThrow( ()-> new ResourceNotFoundException("Student not exists with id " + id));
