@@ -36,7 +36,7 @@ public class StudentController {
 
 
     @GetMapping("ssl")
-    public String getSSL(){
+    public String getSSLStudents(){
         return "SSL Version STUDENTS Controller";
     }
 

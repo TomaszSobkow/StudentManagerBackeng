@@ -23,7 +23,7 @@ public class UserController {
 
 
     @GetMapping("ssl")
-    public String getSSL(){
+    public String getSSLUsers(){
         return "SSL Version USER Controller";
     }
 
