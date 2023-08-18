@@ -21,6 +21,13 @@ public class UserController {
         return userRepository.findAll();
     }
 
+
+    @GetMapping("ssl")
+    public String getSSL(){
+        return "SSL Version USER Controller";
+    }
+
+
     //Find by User ID
     @GetMapping("{id}")
     public User getByID(@PathVariable("id")int  id){
