@@ -34,6 +34,12 @@ public class StudentController {
         return  studentRepository.findAll();
     }
 
+
+    @GetMapping("ssl")
+    public String getSSLStudents(){
+        return "SSL Version STUDENTS Controller";
+    }
+
     //Add new Student
     @PostMapping("/student")
     public Student addStudent(@RequestBody Student newStudent){
