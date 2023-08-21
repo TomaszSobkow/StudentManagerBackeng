@@ -21,7 +21,7 @@ import javax.persistence.Access;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RequestMapping("/api/students")
 public class StudentController {
 

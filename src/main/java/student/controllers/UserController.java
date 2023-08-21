@@ -8,14 +8,14 @@ import student.repo.UserRepository;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
 
-    //getAllUsers
+    @CrossOrigin(origins = "*")
     @GetMapping("")
     public List<User> getAll(){
         return userRepository.findAll();
