@@ -15,7 +15,6 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @CrossOrigin(origins = "*")
     @GetMapping("")
     public List<User> getAll(){
         return userRepository.findAll();
