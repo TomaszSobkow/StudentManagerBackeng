@@ -12,7 +12,7 @@ public class DataSourceConfig {
     public DataSource getDataSource() {
         return DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://192.168.178.100:3306/students?useSSL=false")
+                .url("jdbc:mysql://192.168.178.100:3306/student?allowPublicKeyRetrieval=true&useSSL=false")
                 .username("student")
                 .password("student")
                 .build();
