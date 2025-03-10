@@ -1,5 +1,8 @@
 If you have a problem with springboot and mysql
 change this
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
 sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
     unselect port = 3306
     bind-address  = 192.168.1.100
