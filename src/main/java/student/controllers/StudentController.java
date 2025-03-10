@@ -34,6 +34,11 @@ public class StudentController {
         return  studentRepository.findAll();
     }
 
+    @GetMapping("/test")
+    public String testString(){
+        return "Test Student api";
+    }
+
     //Add new Student
     @PostMapping("/student")
     public Student addStudent(@RequestBody Student newStudent){
