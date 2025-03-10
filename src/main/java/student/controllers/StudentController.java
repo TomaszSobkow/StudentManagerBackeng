@@ -28,6 +28,13 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
+    //this method is not used at all, for test purpose only
+    @GetMapping("/test")
+    public String testStudent(){
+        return "Test student";
+    }
+
+
     //GetAllEmployees
     @GetMapping("")
     public List<Student> getAllStudents(){
