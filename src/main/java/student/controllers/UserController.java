@@ -8,18 +8,24 @@ import student.repo.UserRepository;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 @RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
 
-    //getAllUsers
     @GetMapping("")
     public List<User> getAll(){
         return userRepository.findAll();
     }
+
+
+    @GetMapping("ssl")
+    public String getSSLUsers(){
+        return "SSL Version USER Controller";
+    }
+
 
     //Find by User ID
     @GetMapping("{id}")

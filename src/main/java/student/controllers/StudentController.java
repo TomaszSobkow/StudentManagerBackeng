@@ -21,7 +21,6 @@ import javax.persistence.Access;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "*")
 @RequestMapping("/api/students")
 public class StudentController {
 
@@ -32,6 +31,12 @@ public class StudentController {
     @GetMapping("")
     public List<Student> getAllStudents(){
         return  studentRepository.findAll();
+    }
+
+
+    @GetMapping("ssl")
+    public String getSSLStudents(){
+        return "SSL Version STUDENTS Controller";
     }
 
     //Add new Student

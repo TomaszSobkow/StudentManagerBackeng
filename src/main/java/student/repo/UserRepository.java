@@ -17,12 +17,12 @@ public class UserRepository {
     JdbcTemplate jdbcTemplate;
 
     public List<User> findAll() {
-        return jdbcTemplate.query("SELECT * FROM users",
+        return jdbcTemplate.query("SELECT * FROM user",
         BeanPropertyRowMapper.newInstance(User.class));
     }
 
     public User getById(int id){
-        return jdbcTemplate.queryForObject("SELECT id, login, password, is_admin FROM users WHERE id =?",
+        return jdbcTemplate.queryForObject("SELECT id, login, password, is_admin FROM user WHERE id =?",
                 BeanPropertyRowMapper.newInstance(User.class),id);
     }
 
@@ -30,18 +30,18 @@ public class UserRepository {
         isAdmin = newUser.getIsAdmin();
         if (newUser.getIsAdmin().isEmpty()) isAdmin = "No";
 
-        return jdbcTemplate.update("INSERT INTO users(login, password, is_admin) VALUES(?,?,?)",
+        return jdbcTemplate.update("INSERT INTO user(login, password, is_admin) VALUES(?,?,?)",
                 newUser.getLogin(), newUser.getPassword(), isAdmin);
     }
 
     public void update(User user) {
         isAdmin = user.getIsAdmin();
         if (user.getIsAdmin().isEmpty()) isAdmin = "No";
-        jdbcTemplate.update("UPDATE users SET login=?, password=? , is_admin=? WHERE id=?",
+        jdbcTemplate.update("UPDATE user SET login=?, password=? , is_admin=? WHERE id=?",
                 user.getLogin(), user.getPassword(), isAdmin,user.getId());
     }
 
     public int deleteUser(int id){
-        return jdbcTemplate.update("DELETE from users WHERE id=?", id);
+        return jdbcTemplate.update("DELETE from user WHERE id=?", id);
     }
 }
