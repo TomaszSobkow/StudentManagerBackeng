@@ -3,10 +3,11 @@ package student.model;
 import lombok.*;
 import javax.persistence.*;
 
-@Entity
-@Table(name = "user")
+
 @Getter
 @Setter
+@Entity
+@Table(name = "user")
 public class User {
 
     @Id
