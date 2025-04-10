@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import student.model.User;
 
 import java.util.List;
-@CrossOrigin
 @Repository
 public class UserRepository {
 
@@ -17,9 +16,12 @@ public class UserRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+
     public List<User> findAll() {
+        System.out.println("fuckoff");
         return jdbcTemplate.query("SELECT * FROM user",
         BeanPropertyRowMapper.newInstance(User.class));
+
     }
 
     public User getById(int id){
