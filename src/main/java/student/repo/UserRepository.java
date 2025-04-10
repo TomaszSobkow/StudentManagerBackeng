@@ -18,7 +18,6 @@ public class UserRepository {
 
 
     public List<User> findAll() {
-        System.out.println("fuckoff");
         return jdbcTemplate.query("SELECT * FROM user",
         BeanPropertyRowMapper.newInstance(User.class));
 
